@@ -1,0 +1,44 @@
+{
+  "log": {
+    "level": "debug",
+    "path": null
+  },
+  "proxy": {
+    "proxy_method": "fixed"
+  },
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "db_name": "test",
+    "username": "root",
+    "password": ""
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379,
+    "password": "pwd"
+  },
+  "qiniu": {
+    "ak": "_demo",
+    "sk": "_demo",
+    "bucket": "yhhblog",
+    "prefix": "http://img.hhui.top/"
+  },
+  "aliyun": {
+    "ak": "demo_ak",
+    "sk": "demo_sk",
+    "buckets": {
+      "img": {
+        "bucket": "bucket-name",
+        "endpoint": "http://oss-cn-hongkong.aliyuncs.com",
+        "host": "https://demo.hhui.top"
+      }
+    }
+  },
+  "aes": {
+    "salt": "ceshi"
+  },
+  "biz": {
+    "tmp_file": "data/novel"
+  }
+}
