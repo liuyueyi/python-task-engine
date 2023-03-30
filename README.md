@@ -23,6 +23,10 @@ venv/bin/pip install -r requirements.txt
 
 #### 使用说明
 
+pycharm启动方式配置:
+
+![](docs/run.jpg)
+
 启动命令如下:
 
 ```bash

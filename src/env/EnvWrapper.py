@@ -16,7 +16,7 @@ class EnvWrapper:
         初始化
         :param env: 环境，pro 表示线上，其他线下
         :param path: 项目绝对路径
-        :param task: 执行的人物名
+        :param task: 执行的任务名
         :param console_log_enable 是否允许控制台输出日志
         :return:
         """

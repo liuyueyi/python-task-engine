@@ -19,7 +19,8 @@ def get_path():
     获取项目根路径
     :return:
     """
-    return os.path.abspath(__file__).replace("/main.py", "")
+    # 支持linux、win系统的路径切换
+    return os.path.abspath(__file__).replace("/main.py", "").replace("\\main.py", "")
 
 
 def gen_task(task_name):
