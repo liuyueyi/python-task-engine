@@ -9,9 +9,10 @@ from enum import Enum
 import aiohttp
 from bs4 import BeautifulSoup
 
-from src.logger.LoggerWrapper import SpiderLogger
 from src.plugins.http.ProxyManager import proxy_done, ProxyState, pop_proxy_by_state
+from src.plugins.logger.LoggerWrapper import SpiderLogger
 
+# 忽略https证书校验
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
@@ -79,6 +80,7 @@ async def safe_requests(url, method='get', timeout=20, max_retry=1, retry_sleep=
             if method.lower() == 'get':
                 response = await session.get(url, timeout=timeout, proxy=proxy, headers=headers, **kwargs)
             else:
+                # 对于post 请求， data=xxx 用于表单请求场景； json = xxx 用于json传参方式请求
                 assert method.lower() == 'post', "不支持get, post外的请求，请检查代码"
                 response = await session.post(url, timeout=timeout, proxy=proxy, headers=headers, **kwargs)
             if ignore_encoding_error:

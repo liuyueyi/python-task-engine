@@ -20,9 +20,9 @@ class LoggerWrapper:
         :return:
         """
         if action != 'logs':
-            action = "logs/" + action + "/"
+            action = f"logs{os.sep}{action}{os.sep}"
 
-        path = env_wrapper.get_module_path() + "/" + action + path
+        path = env_wrapper.get_module_path() + os.sep + action + path
         if not os.path.exists(path):
             # 当目录不存在时，主动创建
             os.makedirs(path)
@@ -33,7 +33,7 @@ class LoggerWrapper:
         base_logger = logging.getLogger(log_name)
         base_logger.setLevel(logging.INFO)
 
-        log_file = self._get_path(path, log_name) + "/" + log_name + ".log"
+        log_file = self._get_path(path, log_name) + os.sep + log_name + ".log"
         ch = TimedRotatingFileHandler(log_file, when='D', encoding="utf-8")
         ch.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')

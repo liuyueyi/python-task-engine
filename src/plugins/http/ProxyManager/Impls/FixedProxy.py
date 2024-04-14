@@ -12,7 +12,7 @@ class FixedProxy(AbstractProxy):
 
     def __init__(self):
         self._ip_pool = [
-            {"ip": "http://168.91.108.96:29022", "time": 0},
+            {"ip": "http://127.0.0.1:10809", "time": 0},
            ]
 
     def _pull_ips(self):

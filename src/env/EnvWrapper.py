@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # create by yihui 10:48 19/9/29
 import json
+import os
 
 
 class EnvWrapper:
@@ -30,7 +31,7 @@ class EnvWrapper:
 conf: {self._conf}""")
 
     def init_conf(self):
-        conf_path = f"{self.get_module_path()}/conf/{'dev' if self.is_debug() else 'pro'}/app_config.json"
+        conf_path = f"{self.get_module_path()}{os.sep}conf{os.sep}{'dev' if self.is_debug() else 'pro'}{os.sep}app_config.json"
         with open(conf_path, "r") as reader:
             self._conf = json.loads(reader.read())
         print(f"init config : {conf_path}")

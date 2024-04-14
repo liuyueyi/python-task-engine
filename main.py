@@ -19,8 +19,7 @@ def get_path():
     获取项目根路径
     :return:
     """
-    # 支持linux、win系统的路径切换
-    return os.path.abspath(__file__).replace("/main.py", "").replace("\\main.py", "")
+    return os.path.abspath(__file__).replace(f"{os.sep}main.py", "")
 
 
 def gen_task(task_name):
@@ -30,9 +29,10 @@ def gen_task(task_name):
     """
     target_name = f'{task_name}.py'
     app_path = get_path()
-    for i in os.walk(f'{app_path}/src/biz'):
+    for i in os.walk(f'{app_path}{os.sep}src{os.sep}biz'):
         if target_name in i[-1]:
-            model_path = f'{i[0].replace(app_path, "").replace("/", ".").strip(".")}.{task_name}'
+            # 动态脚本依赖
+            model_path = f'{i[0].replace(app_path, "").replace(f"{os.sep}", ".").strip(".")}.{task_name}'
             task_instance = importlib.import_module(model_path)
             _ = task_instance
             return eval(f'task_instance.{task_name}()')

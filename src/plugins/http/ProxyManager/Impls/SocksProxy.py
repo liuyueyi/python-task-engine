@@ -5,7 +5,7 @@ from src.plugins.http.ProxyManager.AbstractProxy import AbstractProxy
 
 class SocksProxy(AbstractProxy):
     def __init__(self):
-        self.socks_ip = ["http://192.168.0.1:1080"]
+        self.socks_ip = ["http://127.0.0.1:10809"]
 
     @asyncio.coroutine
     def pop_proxy(self):
